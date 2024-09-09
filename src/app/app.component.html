@@ -1,5 +1,30 @@
 <app-header></app-header>
 <main>
-  <h2>ROLL THE DICE</h2>
+  <h2>Roll the Dice</h2>
+  <p id="dice_row">
+    @for (value of diceValues; track value){
+      <img src="images/dice/side_{{value}}.png" alt="side {{value}}">
+    }
+  </p>
+  <p id="total_row">
+    <span class="total_label">Total:</span>
+    <span class="total_number">{{ total }}</span>
+  </p>
+  <p>
+    <label for="c">Number of Dice:</label>
+    <select id="c" #numberOfDice>
+      <option>1</option>
+      <option>2</option>
+      <option selected>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </p>
+  <p>
+    <button (click)="onRollDice(parseInt(numberOfDice.value))">Roll Dice</button>
+  </p>
+  <p>
+    <a href="#" (click)="onReset()">Reset</a>
+  </p>
 </main>
 <app-footer></app-footer>
