@@ -6,7 +6,8 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
+
 })
 export class HeaderComponent {
-
+  title: string = "My Dice - Angular";
 }
