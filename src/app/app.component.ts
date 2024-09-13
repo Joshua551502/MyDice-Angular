@@ -52,6 +52,6 @@ export class AppComponent {
     return false;
   }
 
-
+//comment
   protected readonly parseInt = parseInt;
 }
