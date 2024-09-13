@@ -15,38 +15,43 @@ export class AppComponent {
 
   diceValues: number[] = [];
   total: number = 0;
+  numberOfDice: number = 3; // Initialize to 3 by default
 
   private getRandomDiceValue(){
-  return 1 + Math.floor(6*Math.random());
-}
-
-private getRollData(numberOfDice: number): RollData{
-  const values = [];
-  let total = 0;
-  for(let i = 0; i < numberOfDice; i++){
-    let diceValue = this.getRandomDiceValue()
-    values.push(diceValue);
-    total += diceValue;
+    return 1 + Math.floor(6 * Math.random());
   }
-  return {
-    numberOfDice: numberOfDice,
-    values: values,
-    total: total
-  };
 
-}
+  private getRollData(numberOfDice: number): RollData {
+    const values = [];
+    let total = 0;
+    for (let i = 0; i < numberOfDice; i++) {
+      let diceValue = this.getRandomDiceValue();
+      values.push(diceValue);
+      total += diceValue;
+    }
+    return {
+      numberOfDice: numberOfDice,
+      values: values,
+      total: total
+    };
+  }
 
-  onRollDice(numberOfDice: number): void{
+  onRollDice(numberOfDice: number): void {
     let rollData: RollData = this.getRollData(numberOfDice);
     this.diceValues = rollData.values;
     this.total = rollData.total;
   }
 
-  onReset(): boolean{
+  onReset(): boolean {
     this.diceValues = [];
     this.total = 0;
+    // Set the select value back to 3
+    const selectElement = document.getElementById('c') as HTMLSelectElement;
+    selectElement.value = '3';
+    this.numberOfDice = 3; // Update the internal variable as well
     return false;
   }
+
 
   protected readonly parseInt = parseInt;
 }
