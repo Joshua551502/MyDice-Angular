@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './header.component.css'
 
 })
+
+//comment
 export class HeaderComponent {
   title: string = "My Dice - Angular";
 }
